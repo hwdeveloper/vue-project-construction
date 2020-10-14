@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <el-button type="primary" round loading="true">主要按钮</el-button>
+    <el-button type="primary" loading="true">主要按钮</el-button>
   </div>
 </template>
 

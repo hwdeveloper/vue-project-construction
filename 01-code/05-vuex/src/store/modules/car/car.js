@@ -30,7 +30,7 @@ export default {
     },
   },
   actions: {
-    async CAR_LIST(context) {
+    async carList(context) {
       let list = await reqCarList();
       context.commit(CAR_LIST, list);
     },

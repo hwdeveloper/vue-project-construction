@@ -5,13 +5,13 @@ var app = express();
 const cors = require("cors");
 app.use(
   cors({
-    origin: ["http://localhost:8888"],
+    origin: ["http://localhost:8080"],
     methods: ["GET", "POST"],
   })
 );
 //设置跨域访问
 // app.all("*", function (req, res, next) {
-//   res.header("Access-Control-Allow-Origin", "http://localhost:8080");
+//   res.header("Access-Control-Allow-Origin", "*");
 //   res.header("Access-Control-Allow-Headers", "Content-Type");
 //   res.header("Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, OPTIONS");
 //   next();
@@ -33,16 +33,14 @@ app.get("/car/list", function (req, res) {
     { id: 1, name: "宝马", price: 11 },
   ]);
 });
-app.post("/login", urlencodedParser, function (req, res) {
-  let { name, passwd } = req.body;
 
-  res.json({
-    title: "登录页面",
-    code: 1,
-    msg: name + "提交成功",
-    user: { name: name, passwd: passwd, infor: "这是一个好人" },
-  });
-});
+
+
+//控制器只接受用户提交的数据，同时解析
+let userController = require("./controllers/userController")
+app.post("/login", urlencodedParser, userController.login);//登录验证
+app.post("/register", urlencodedParser, userController.register);
+
 
 var server = app.listen(9999, () => {
   console.log("启动服务器");

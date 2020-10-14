@@ -12,7 +12,7 @@ import { USER_SET } from "../store/action";
 export default {
   name: "HelloWorld",
 
-  data: function() {
+  data: function () {
     return {};
   },
 
@@ -28,8 +28,11 @@ export default {
         name: "wangzhijun",
         passwd: 123456,
       });
+
+      console.log(res);
+
       window.sessionStorage.setItem("token", true);
-      this.$router.push("/");
+      //this.$router.push("/");
       this.setUser(res.user);
     },
 

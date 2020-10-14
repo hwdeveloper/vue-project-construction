@@ -6,7 +6,7 @@ let user = sessionStorage.getItem("user")
 
 const state = () => ({
   user: user,
-  title: "登录页面",
+  title: "登录页面234",
 });
 const getters = {
   title: (state) => {

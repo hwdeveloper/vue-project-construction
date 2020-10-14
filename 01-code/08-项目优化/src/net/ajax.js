@@ -15,11 +15,11 @@ const http = axios.create({
 
 // 添加请求拦截器
 http.interceptors.request.use(
-  function(config) {
+  function (config) {
     // 在发送请求之前做些什么
     return config;
   },
-  function(error) {
+  function (error) {
     // 对请求错误做些什么
     return Promise.reject(error);
   }
@@ -27,7 +27,7 @@ http.interceptors.request.use(
 
 // 添加响应拦截器
 http.interceptors.response.use(
-  function(response) {
+  function (response) {
     // 对响应数据做点什么
 
     if (response.status == 200) {
@@ -36,13 +36,13 @@ http.interceptors.response.use(
       return { code: -1, msg: "请求失败！" };
     }
   },
-  function(error) {
+  function (error) {
     // 对响应错误做点什么
     return Promise.reject(error);
   }
 );
 
-const get = function(api, object) {
+const get = function (api, object) {
   //如果对象为空，就创建一个空对象
   if (object == null) object = {};
   let promise = http.get(api, {
@@ -51,13 +51,13 @@ const get = function(api, object) {
   return promise;
 };
 
-const post = function(api, object) {
+const post = function (api, object) {
   if (object == null) object = {};
   let promise = http.post(api, qs.stringify(object));
   return promise;
 };
 
-const uploadFile = function(api, object) {
+const uploadFile = function (api, object) {
   if (object == null) object = {};
   let param = new FormData();
   for (let key in object) {

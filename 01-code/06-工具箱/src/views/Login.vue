@@ -17,7 +17,8 @@ export default {
   },
 
   created() {
-    this.login();
+    console.log(this.$utlis);
+    //this.login();
   },
   computed: {
     ...mapGetters("user", { user: "user", title: "title" }),

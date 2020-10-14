@@ -3,8 +3,6 @@ import axios from "axios";
 import qs from "qs";
 import { host } from "../config/index";
 
-console.log("url=" + host);
-
 const http = axios.create({
   baseURL: host,
   timeout: 1000 * 180,

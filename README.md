@@ -1,1 +1,4 @@
-# vue-project-construction
+# 项目安装：
+
+下载项目后，执行npm install ，每个代码都可以执行
+
